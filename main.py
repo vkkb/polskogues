@@ -24,7 +24,13 @@ def create_dict(language):
         'o que' : 'co',
         'te amo' : 'kocham cie',
         'cansado' : 'zmeczony',
-        'vinho' : 'wino'
+        'vinho' : 'wino',
+        'abraçar' : 'przytulic',
+        'namorado' : 'chlopak',
+        'namorada' : 'dziewczyna',
+        'filho' : 'syn',
+        'filha' : 'corka'
+        
     }
     if language == '1':
         return dict_por_pol
