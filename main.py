@@ -23,7 +23,8 @@ def create_dict(language):
         'por favor' : 'prosze',
         'o que' : 'co',
         'te amo' : 'kocham cie',
-        'cansado' : 'zmeczony'
+        'cansado' : 'zmeczony',
+        'vinho' : 'wino'
     }
     if language == '1':
         return dict_por_pol
