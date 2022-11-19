@@ -1,4 +1,4 @@
-package com.polskogues.core.resources;
+package com.polskogues.core.model;
 
 import lombok.Value;
 
