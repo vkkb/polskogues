@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
@@ -24,8 +23,6 @@ public class ContentController {
     private final ContentRepository contentRepository;
 
     private final ContentModelAssembler contentModelAssembler;
-
-    private final AtomicLong counter = new AtomicLong();
 
     public ContentController(ContentRepository contentRepository, ContentModelAssembler contentModelAssembler) {
         this.contentRepository = contentRepository;
