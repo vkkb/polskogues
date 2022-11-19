@@ -19,7 +19,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-public class WordsController {
+public class ContentController {
 
     private final ContentRepository contentRepository;
 
@@ -27,7 +27,7 @@ public class WordsController {
 
     private final AtomicLong counter = new AtomicLong();
 
-    public WordsController(ContentRepository contentRepository, ContentModelAssembler contentModelAssembler) {
+    public ContentController(ContentRepository contentRepository, ContentModelAssembler contentModelAssembler) {
         this.contentRepository = contentRepository;
         this.contentModelAssembler = contentModelAssembler;
     }
@@ -37,7 +37,7 @@ public class WordsController {
         List<EntityModel<Content>> contents = contentRepository.findAll().stream()
                 .map(contentModelAssembler::toModel)
                 .collect(Collectors.toList());
-        return CollectionModel.of(contents, linkTo(methodOn(WordsController.class).contents()).withSelfRel());
+        return CollectionModel.of(contents, linkTo(methodOn(ContentController.class).contents()).withSelfRel());
     }
 
     @GetMapping("/contents/{id}")

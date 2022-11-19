@@ -1,6 +1,6 @@
 package com.polskogues.core.model;
 
-import com.polskogues.core.controller.WordsController;
+import com.polskogues.core.controller.ContentController;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ public class ContentModelAssembler implements RepresentationModelAssembler<Conte
     @Override
     public EntityModel<Content> toModel(Content content) {
         return EntityModel.of(content,
-                linkTo(methodOn(WordsController.class).content(content.getId())).withSelfRel(),
-                linkTo(methodOn(WordsController.class).contents()).withRel("contents"));
+                linkTo(methodOn(ContentController.class).content(content.getId())).withSelfRel(),
+                linkTo(methodOn(ContentController.class).contents()).withRel("contents"));
     }
 }
