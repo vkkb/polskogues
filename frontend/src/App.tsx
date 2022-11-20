@@ -1,23 +1,29 @@
-import React from 'react';
+import React,{useState} from 'react';
+import Axios from 'axios'
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const [contents, setContents]=useState([])
+
+  const getContents = async () => {
+    const getValuesCall = "http://localhost:8080/contents";
+    const response = await Axios(getValuesCall);
+    setContents(response.data);
+}
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Choose game mode.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={getContents}>Polish to Portuguese translation</button>
+        <button onClick={getContents}>Portuguese to Polish translation</button>
+        {/* <div>
+          <h4>{JSON.stringify(contents['_embedded']['contents'])}</h4>
+        </div> */}
       </header>
     </div>
   );
